@@ -17,6 +17,7 @@ Même pour une GUI on peut faire des tests : on teste les données suite à des 
 - Meri 207
 - Sutharsan 207
 - Jakubczyk 208
+- EL BAASI 208
   
 ### Objectif
 Ce projet a pour objectif de concevoir et de développer une interface graphique utilisateur (**GUI**) permettant de jouer au jeu de ***Go***.
