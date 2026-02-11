@@ -1,0 +1,827 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Css commun à toutes les pages : */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    background: #E1E1E1;
+    color: #1E1E1E;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.title {
+    padding: 30vh 0 0;
+    font-style: italic;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Version Blanche*/
+.container.blanc {
+    background: #E1E1E1;
+    color: #1E1E1E;
+}
+
+/* Version Noire*/
+.container.noir {
+    background: #1E1E1E;
+    color: #E1E1E1;
+}
+
+.container.noir .button {
+    color: #1E1E1E;
+    background: #E1E1E1;
+}
+
+.container h2 {
+    font-weight: lighter;
+    font-size: 2rem;
+    margin: 10vh 0 1vh;
+}
+
+.button {
+    font-size: 1.5rem;
+    padding: 0.75rem 0 0.75rem;
+    margin: 0 0 3vh;
+    width: 15rem;
+    text-decoration: none;
+    color: #E1E1E1;
+    background: #1E1E1E;
+    border-radius: 60px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.5s;
+}
+
+.button:hover {
+    opacity: 0.8;
+}
+
+/* Bouton Maison (components)*/
+.maison-bouton {
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.maison-image {
+    width: 3rem;
+    height: 3rem;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.maison-image:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+/*Plateau (components)*/
+.plateau-container {
+    width: 50rem;
+    height: 50rem;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quadrillage {
+    width: 50rem;
+    height: 50rem;
+    display: block;
+}
+
+.pierre {
+    opacity: 0;
+}
+
+.pierre.pose {
+    opacity: 1;
+}
+
+.pose.noir {
+    fill: #1E1E1E;
+}
+
+.pose.blanc {
+    fill: #E1E1E1;
+}
+
+/* Version Blanc */
+.container .quadrillage .contour {
+    stroke: #1E1E1E;
+}
+
+.container .numerotation {
+    fill: #1E1E1E;
+}
+
+.container.blanc .numerotation.actuel, .container.noir .numerotation.actuel {
+    fill: #16BF49;
+    font-weight: bold;
+}
+
+/* Version Noir */
+.container.noir .quadrillage .contour {
+    stroke: #E1E1E1;
+}
+
+.container.noir .numerotation {
+    fill: #E1E1E1;
+}
+
+/* Barre de selection de taille (components) */
+.container .bar-container {
+    margin: 5vh 0 5vh;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    background-color: #1E1E1E;
+    border-radius: 75px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.container .tailleValeur {
+    width: 0.75vw;
+    height: 0.75vw;
+    border-radius: 50%;
+    background-color: #E1E1E1;
+    border: none;
+    transition: 0.3s;
+    box-shadow: 0 4px 6px rgb(30, 30, 30);
+}
+
+.container .tailleValeur.select {
+    transform: scale(2);
+}
+
+.container .tailleValeur:hover {
+    transform: scale(2.5);
+}
+
+/*Version Noire*/
+.container.noir .bar-container {
+    background-color: #E1E1E1;
+
+}
+
+.container.noir .tailleValeur {
+    background-color: #1E1E1E;
+    box-shadow: 0 4px 6px rgb(225, 225, 225);
+}
+
+/* Historique */
+.container .historique {
+    height: 10rem;
+    max-width: 20vw;
+    overflow: auto;
+    position: absolute;
+    font-size: 1rem;
+    text-align: left;
+    bottom: 3rem;
+    left: 3rem;
+    padding-right: 3rem;
+}
+
+.container .historique .dernierCoup {
+    font-weight: 600;
+}
+
+.container .historique .illegal {
+    color: #B85656;
+}
+
+.container .historique::-webkit-scrollbar {
+    width: 12px;
+}
+
+.container .historique::-webkit-scrollbar-thumb {
+    background: #888888FF;
+}
+
+.container .historique::-webkit-scrollbar-thumb:hover {
+    background: #555555FF;
+}
+
+.container .historique::-webkit-scrollbar-track {
+    background: #f0f0f0;
+}
+
+/* Test (Page) */
+.container.test {
+    margin: 20vh 0 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.container.test .title {
+    margin: 0 0 2vh;
+    padding: 0;
+    position: absolute;
+    top: 7rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container.test p {
+    font-size: 1.3rem;
+}
+
+.container.test .reponse {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container.test pre {
+    font-size: 1.5rem;
+    margin: 0 1vw 10vh;
+    background-color: #1E1E1E;
+    color: #E1E1E1;
+    width: 50vw;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.container.test .commande {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 2vw;
+    margin: 5vh 10vw 5vh;
+}
+
+.container.test .button {
+    flex: 0 0 7vw;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    height: 3rem;
+}
+
+.container.test input {
+    padding: 0.75rem 0 0.75rem;
+    width: 18rem;
+}
+
+/* Menu */
+.container.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.container.menu .title {
+    margin: 0 0 6rem;
+}
+
+.container.menu .credit {
+    justify-content: center;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.container.menu .credit-container {
+    display: flex;
+    position: absolute;
+    bottom: 4vh;
+    flex-direction: column;
+}
+
+.container.menu .credit a {
+    padding: 0 0 0 0.25rem;
+}
+
+.container.menu .credit .Logo {
+    margin: 3px;
+    fill: #007bff;
+}
+
+/* Règles */
+.container.regles {
+    margin: 0;
+}
+
+.title-outside {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2vh;
+    padding-top: 10vh;
+    color: #333;
+}
+
+.container.regles section {
+    max-width: 70vw;
+    margin: 0 auto;
+    padding: 1.5vw;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.container.regles .commentJouer {
+    background-color: #f9f9f9;
+}
+
+.container.regles .presenteSite {
+    background-color: #2c2c2c;
+    color: #d6d6d6;
+}
+
+.container.regles .commentJouer ol {
+    color: #444;
+}
+
+.commentJouer ul {
+    margin-left: 1vw;
+    padding-left: 1vw;
+    padding-bottom: 10px;
+}
+
+.container.regles li {
+    margin-bottom: 1vh;
+    font-size: 1.1rem;
+}
+
+.container.regles p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.container.regles .commentJouer p {
+    color: #555;
+}
+
+.container.regles .presenteSite p {
+    padding-top: 1vh;
+}
+
+.container.regles a:hover {
+    text-decoration: underline;
+}
+
+.container.regles .presenteSite ul {
+    margin-left: 1vw;
+    padding-left: 1vw;
+}
+
+.premierPdePresentation {
+    padding-bottom: 1vh;
+}
+
+/* ChoixJoueurs */
+.container.choixJoueurs h2 {
+    margin: 3vh 0 9vh 0;
+    font-size: 2.5rem;
+    padding: 0;
+    font-weight: 600;
+    line-height: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.container.choixJoueurs .description {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #888;
+}
+
+.container.choixJoueurs .button-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    margin: 8rem 0 0;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.container.choixJoueurs .info-choix {
+    position: absolute;
+    visibility: hidden;
+    left: 50%;
+    top: 5rem;
+    transform: translateX(-50%);
+    color: #1E1E1E;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+    font-size: 1.2rem;
+}
+
+.container.choixJoueurs .button:hover .info-choix {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+
+/* ChoixCamp */
+.container.choixCamp h2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 5rem;
+    font-weight: 600;
+    background: linear-gradient(to right, #e1e1e1 50%, #1e1e1e 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.container.choixCamp {
+    margin: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container.choixCamp .choix-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.container.choixCamp .choix-container p {
+    margin-top: 4rem;
+    font-size: 3.8rem;
+}
+
+.container.choixCamp .choix {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container.choixCamp .choix.blanc {
+    background-color: #1E1E1E;
+    color: #E1E1E1;
+}
+
+.container.choixCamp .choix.noir {
+    background-color: #E1E1E1;
+}
+
+.container.choixCamp .choix-container button {
+    margin-top: 11vh;
+    width: 8vw;
+    height: 8vw;
+    border: none;
+    border-radius: 50%;
+}
+
+.container.choixCamp .choix-container button {
+    transition: 0.3s ease-out;
+}
+
+.container.choixCamp .choix-container button:hover {
+    opacity: 0.8;
+    transform: scale(1.3)
+}
+
+.container.choixCamp .choix.blanc button {
+    background-color: #E1E1E1;
+}
+
+.container.choixCamp .choix.noir button {
+    background-color: #1E1E1E;
+}
+
+/* ChoixTaillePlateau */
+.container.choixTaillePlateau {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.container.choixTaillePlateau h2 {
+    margin: 15vh 0 6vh;
+    font-size: 3rem;
+}
+
+.container.choixTaillePlateau p {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.container.choixTaillePlateau .plateau-container {
+    width: 25rem;
+    height: 25rem;
+}
+
+.container.choixTaillePlateau .quadrillage {
+    width: 25rem;
+    height: 25rem;
+}
+
+/* Jeu, c'est ici que vos parties palpitantes se dérouleront ! ^^*/
+.container.jeu {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background 1.5s, color 1s;
+}
+
+.container.jeu .title {
+    padding: 0;
+    margin: 10px 0 0 0;
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+.container.jeu .button {
+    margin: 0;
+    position: absolute;
+    font-weight: bold;
+    bottom: 3rem;
+}
+
+.container.jeu .button.abandon {
+    right: 3rem;
+}
+
+.container.jeu .button.pass {
+    right: 20rem;
+    width: 11rem;
+}
+
+.container.jeu .button.desactive {
+    opacity: 0;
+}
+
+/* Le popup de confirmation d'abandon */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.container.jeu.noir .popUpConfirmation {
+    background: #1E1E1E;
+    color: #E1E1E1;
+}
+
+.container.jeu .popUpConfirmation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background: #E1E1E1;
+    color: #1E1E1E;
+    padding: 2rem;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    width: 30rem;
+    height: 8rem;
+    opacity: 0.97;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    animation: animationApparition 0.7s ease-out;
+}
+
+.container.jeu .popUpConfirmation p {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.container.jeu.noir .popUpConfirmation button {
+    color: #1E1E1E;
+}
+
+.container.jeu .popUpConfirmation button {
+    color: #1E1E1E;
+    padding: 0.5em 1em;
+    border-radius: 20px;
+    font-size: 0.4em;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    font-weight: 700;
+    transition: background 0.5s ease, transform 0.3s ease;
+}
+
+.container.jeu .popUpConfirmation button:hover {
+    background-position: left;
+    transform: scale(1.1);
+}
+
+.container.jeu.noir .popUpConfirmation #annuler {
+    border: 2px solid #E1E1E1;
+    color: #E1E1E1;
+}
+
+.container.jeu .popUpConfirmation #annuler {
+    background: none;
+    border: 2px solid #1E1E1E;
+    margin-right: 0.5em;
+}
+
+.container.jeu.noir .popUpConfirmation #confirmer {
+    color: #E1E1E1;
+}
+
+.container.jeu .popUpConfirmation #confirmer {
+    background: linear-gradient(to left, #FF6B6B, #FF4D4D);
+    border: none;
+    margin-left: 0.5em;
+    color: #1E1E1E;
+}
+
+.container.jeu .popUpConfirmation .actions {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: auto;
+}
+
+/* Animation lorsque le popup apparait */
+
+@keyframes animationApparition {
+    0% {
+        transform: translate(-50%, -50%) scale(0.3);
+        opacity: 0;
+    }
+    60% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Fin, Le popup de confirmation d'abandon */
+
+
+.container.jeu .jeuInfo {
+    position: relative;
+}
+
+.container.jeu .pierresCapturees {
+    position: absolute;
+    font-size: 1.25rem;
+    left: 100%;
+    bottom: 15%;
+    text-align: left;
+    width: 18vw;
+}
+
+.container.jeu .pierresCapturees .gras {
+    font-weight: 500;
+}
+
+.container.jeu .pierresCapturees .surbrillance {
+    color: #16BF49;
+}
+
+.container.jeu h2 {
+    margin: 0;
+    font-weight: 400;
+}
+
+.animation-chargement::after {
+    content: "";
+    display: inline-block;
+    width: 0.6em;
+    text-align: left;
+    animation: loading 1.5s infinite steps(4);
+}
+
+@keyframes loading {
+    0%, 100% {
+        content: "";
+    }
+    25% {
+        content: ".";
+    }
+    50% {
+        content: "..";
+    }
+    75% {
+        content: "...";
+    }
+}
+
+/* Fin de jeu */
+.container.fin-jeu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container.fin-jeu h2 {
+    margin: 0 0 6rem;
+    padding: 0;
+}
+
+/* Media queries , Merci de laisser ceci à la fin du Css^^ */
+
+/* Téléphone (petit) */
+@media (max-width: 480px) {
+    html {
+        font-size: 6px;
+    }
+
+    .container.jeu .historique {
+        font-size: 1rem;
+    }
+}
+
+/* Téléphone */
+@media (min-width: 481px) and (max-width: 767px) {
+    html {
+        font-size: 7px;
+    }
+
+    .container.jeu .historique {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .container.jeu .pierresCapturees {
+        left: 60%;
+        bottom: -10%;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .container .historique {
+        max-width: 50vw;
+    }
+}
+
+/* Tablette (petit) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    html {
+        font-size: 10px;
+    }
+}
+
+/* Tablette */
+@media screen and (min-width: 1025px) and (max-width: 1279px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+/* === Ordinateurs (petits écrans) === */
+@media screen and (min-width: 1280px) and (max-width: 1440px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+/* === Ordinateurs (écrans moyen )=== */
+@media screen and (min-width: 1441px) and (max-width: 1920px) {
+    html {
+        font-size: 15px;
+    }
+}
